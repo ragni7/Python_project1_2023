@@ -28,30 +28,30 @@ while True:
 	
 	elif Choice == "Whatsapp":
 		os.system('chrome')
-		pywhatkit.sendwhatmsg("+918320862751","Hey, I'm from python",18,18)
+		pywhatkit.sendwhatmsg("Phone number","Hey, I'm from python",18,18)
 		print("done!")
 	
 	elif Choice== "Gmail":
 		Gmailconn = smtplib.SMTP('smtp.gmail.com', 587)
 		Gmailconn.starttls()
-		Gmailconn.login("ragnisshukla@gmail.com", "hpyl mnpp eqlt rjdz")
+		Gmailconn.login("email id", "password")
 		Email_msg = """Hey. I hope you're well! 
 		This is an email from python project"""
-		Gmailconn.sendmail("ragnisshukla@gmail.com", "shuklaragni99@gmail.com", Email_msg)
+		Gmailconn.sendmail("sender's email id", "receiver's email id", Email_msg)
 
 	elif Choice == "SMS":
 	
 		from twilio.rest import Client 
 		# Your Account Sid and Auth Token from twilio.com / console 
-		SMS_sid = 'AC04be8fba24e9c5592d18017299d00c3b'
-		SMS_auth_token = 'bbbe6bfc70132bca052c62fbd8c39826'
+		SMS_sid = 'Key'
+		SMS_auth_token = 'auth key'
 
 		client = Client(SMS_sid, SMS_auth_token) 
 
 		SMS_message = client.messages.create( 
-							from_='+15104883899', 
+							from_='Phone number', 
 							body ='Hey SMS, This is from python project', 
-							to ='+918320862751'
+							to ='Phone number'
 						) 
 
 		print(SMS_message.sid)
@@ -74,7 +74,7 @@ while True:
 	elif Choice == "audio":
 		#import the library
 		from playsound import playsound
-		song = multiprocessing.Process(target=playsound, args=(r'E:/Ragni Mobile/songs/AUD-20150717-WA0018.mp3',))
+		song = multiprocessing.Process(target=playsound, args=(r'Path',))
 		song.start()
 		input("press ENTER to stop playback")
 		song.terminate()
